@@ -152,6 +152,15 @@ The dataset contains the labels for cars, pedestrians and cyclists with the disp
 ##### Class distribution:
 ![number of objects by class](/images/obj.png)
 
+##### Distribution of cars:
+![](/images/car_dist.png)
+
+##### Distribution of pedestrians:
+![](/images/ped_dist.png)
+
+##### Distribution of cyclist:
+![](/images/cyclist_dist.png)
+
 ##### Dataset samples:
 Images are taken in various environments(highway,city,etc) with different weather conditions(Sunny, cloudy) and different times(day, night).
 The bounding boxes are color coordinated for each object class(red=car, blue=pedestrian, green=cyclist).
