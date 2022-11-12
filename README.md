@@ -145,6 +145,41 @@ In this project, a convolutional neural network is trained with the Waymo datase
 
 ### Set up
 This section should contain a brief description of the steps to follow to run the code for this repository.
+As mentioned in the project rubrics, GPU compatible system should be present for this. In my case, I have used Nvidia Geforce RTX 2060.
+
+- First the project files should be downloaded through git clone from [this repository](https://github.com/udacity/nd013-c1-vision-starter)
+- Navigate to the root directory of the project and use the docker file and requirements.txt from the "build" directory
+- The following command should be run from inside the "build" directory:
+
+```
+docker build -t project-dev -f Dockerfile.gpu
+```
+
+- Then we create a docker container to run the created image.
+
+```
+docker run -v D:\nd013-c1-vision-starter\:/app/project/ -p 8888:8888 -p 6006:6006 --shm-size=16gb -ti project-dev bash
+```
+- Inside the container, we can use the gsutil command  to download the tfrecord from cloud storage:
+
+```
+curl https://sdk.cloud.google.com | bash
+```
+-Authentication can be done using 
+
+```
+gcloud auth login
+
+```
+- The following libraries can be installed
+
+```
+pip install tensorflow-gpu==2.3.0
+pip install numpy
+pip install pandas
+pip install matplotlib
+pip install seaborn
+```
 
 ### Dataset
 #### Dataset analysis
