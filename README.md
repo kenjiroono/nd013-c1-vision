@@ -141,7 +141,7 @@ python inference_video.py --labelmap_path label_map.pbtxt --model_path experimen
 ## Submission Template
 
 ### Project overview
-This section should contain a brief description of the project and what we are trying to achieve. Why is object detection such an important component of self driving car systems?
+In this project, a convolutional neural network is trained with the Waymo dataset and its object detection performance is evaluated. The object detection is a crucial part of self-driving car system as the vehicle cannot plan a safe drivable path if it cannot identify the objects in the path. 
 
 ### Set up
 This section should contain a brief description of the steps to follow to run the code for this repository.
@@ -149,6 +149,7 @@ This section should contain a brief description of the steps to follow to run th
 ### Dataset
 #### Dataset analysis
 This section should contain a quantitative and qualitative description of the dataset. It should include images, charts and other visualizations.
+![SSD](/images/SSD_dataAug.png)
 #### Cross validation
 This section should detail the cross validation strategy and justify your approach.
 
