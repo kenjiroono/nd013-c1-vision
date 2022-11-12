@@ -155,7 +155,7 @@ The dataset contains the labels for cars, pedestrians and cyclists with the disp
 ##### Distribution of cars:
 ![](/images/car_dist.png)
 
-<img src=/images/car_dist.png alt="drawing" width="200"/>
+<img src=/images/car_dist.png alt="drawing" width="600"/>
 
 
 ##### Distribution of pedestrians:
