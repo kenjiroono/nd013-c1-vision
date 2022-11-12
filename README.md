@@ -145,7 +145,7 @@ In this project, a convolutional neural network is trained with the Waymo datase
 
 ### Set up
 This section should contain a brief description of the steps to follow to run the code for this repository.
-As mentioned in the project rubrics, GPU compatible system should be present for this. In my case, I have used Nvidia Geforce RTX 2060.
+As mentioned in the project rubrics, GPU compatible system should be present for this.
 
 - First the project files should be downloaded through git clone from [this repository](https://github.com/udacity/nd013-c1-vision-starter)
 - Navigate to the root directory of the project and use the docker file and requirements.txt from the "build" directory
@@ -204,7 +204,11 @@ The bounding boxes are color coordinated for each object class(red=car, blue=ped
 <img src=/images/gt_3.png alt="drawing" width="600"/>
 
 #### Cross validation
-This section should detail the cross validation strategy and justify your approach.
+We are using 100 tfrecord files. We first shuffle the data randomly and then split into training,testing and validation sets. The reason for random shuffling is to
+reduce the class imbalance in each sample. The shuffling ensures approximately equal distribution of samples in the training,testing and validation datasets.
+
+
+In this case, we are using 0.75 : 0.15 as the proportion of training and validation data since we are using only 100 tfrecord samples. This ensures that we have sufficient data for training as well as validation.We are using 10% (0.1) of the sample as the test set to check the error rate and if the model is overfitting.Ideally,overfitting should not be an issue since 75% is under training and rest 10% is for testing.
 
 ### Training
 #### Reference experiment
@@ -214,4 +218,8 @@ This section should detail the results of the reference experiment. It should in
 
 
 #### Improve on the reference
-This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
+To improve the performance, data augmentation techniques are used:
+- GrayScale
+
+<img src=/images/SSD_dataAug.png alt="drawing" width="600"/>
+
