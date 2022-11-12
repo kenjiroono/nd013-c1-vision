@@ -150,26 +150,23 @@ This section should contain a brief description of the steps to follow to run th
 #### Dataset analysis
 The dataset contains the labels for cars, pedestrians and cyclists with the disproportional representation of each class. The dataset contains the cars the most and cyclists the least. 
 ##### Class distribution:
-![number of objects by class](/images/obj.png)
+<img src=/images/obj.png alt="drawing" width="600"/>
 
 ##### Distribution of cars:
-![](/images/car_dist.png)
-
 <img src=/images/car_dist.png alt="drawing" width="600"/>
 
-
 ##### Distribution of pedestrians:
-![](/images/ped_dist.png)
+<img src=/images/ped_dist.png alt="drawing" width="600"/>
 
 ##### Distribution of cyclist:
-![](/images/cyclist_dist.png)
+<img src=/images/cyclist_dist.png alt="drawing" width="600"/>
 
 ##### Dataset samples:
 Images are taken in various environments(highway,city,etc) with different weather conditions(Sunny, cloudy) and different times(day, night).
 The bounding boxes are color coordinated for each object class(red=car, blue=pedestrian, green=cyclist).
-![](/images/gt_1.png)
-![](/images/gt_2.png)
-![](/images/gt_3.png)
+<img src=/images/gt_1.png alt="drawing" width="600"/>
+<img src=/images/gt_2.png alt="drawing" width="600"/>
+<img src=/images/gt_3.png alt="drawing" width="600"/>
 
 #### Cross validation
 This section should detail the cross validation strategy and justify your approach.
@@ -178,7 +175,7 @@ This section should detail the cross validation strategy and justify your approa
 #### Reference experiment
 This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
 
-![SSD](/images/SSD_dataAug.png)
+<img src=/images/SSD_dataAug.png alt="drawing" width="600"/>
 
 
 #### Improve on the reference
