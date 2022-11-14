@@ -145,17 +145,81 @@ In this project, a convolutional neural network is trained with the Waymo datase
 
 ### Set up
 This section should contain a brief description of the steps to follow to run the code for this repository.
+As mentioned in the project rubrics, GPU compatible system should be present for this.
+
+- First the project files should be downloaded through git clone from [this repository](https://github.com/udacity/nd013-c1-vision-starter)
+- Navigate to the root directory of the project and use the docker file and requirements.txt from the "build" directory
+- The following command should be run from inside the "build" directory:
+
+```
+docker build -t project-dev -f Dockerfile.gpu
+```
+
+- Then we create a docker container to run the created image.
+
+```
+docker run -v D:\nd013-c1-vision-starter\:/app/project/ -p 8888:8888 -p 6006:6006 --shm-size=16gb -ti project-dev bash
+```
+- Inside the container, we can use the gsutil command  to download the tfrecord from cloud storage:
+
+```
+curl https://sdk.cloud.google.com | bash
+```
+-Authentication can be done using 
+
+```
+gcloud auth login
+
+```
+- The following libraries can be installed
+
+```
+pip install tensorflow-gpu==2.3.0
+pip install numpy
+pip install pandas
+pip install matplotlib
+pip install seaborn
+```
 
 ### Dataset
 #### Dataset analysis
-This section should contain a quantitative and qualitative description of the dataset. It should include images, charts and other visualizations.
-![SSD](/images/SSD_dataAug.png)
+The dataset contains the labels for cars, pedestrians and cyclists with the disproportional representation of each class. The dataset contains the cars the most and cyclists the least. 
+##### Class distribution:
+<img src=/images/obj.png alt="drawing" width="600"/>
+
+##### Distribution of cars:
+<img src=/images/car_dist.png alt="drawing" width="600"/>
+
+##### Distribution of pedestrians:
+<img src=/images/ped_dist.png alt="drawing" width="600"/>
+
+##### Distribution of cyclist:
+<img src=/images/cyclist_dist.png alt="drawing" width="600"/>
+
+##### Dataset samples:
+Images are taken in various environments(highway,city,etc) with different weather conditions(Sunny, cloudy) and different times(day, night).
+The bounding boxes are color coordinated for each object class(red=car, blue=pedestrian, green=cyclist).
+<img src=/images/gt_1.png alt="drawing" width="600"/>
+<img src=/images/gt_2.png alt="drawing" width="600"/>
+<img src=/images/gt_3.png alt="drawing" width="600"/>
+
 #### Cross validation
-This section should detail the cross validation strategy and justify your approach.
+We are using 100 tfrecord files. We first shuffle the data randomly and then split into training,testing and validation sets. The reason for random shuffling is to
+reduce the class imbalance in each sample. The shuffling ensures approximately equal distribution of samples in the training,testing and validation datasets.
+
+
+In this case, we are using 0.75 : 0.15 as the proportion of training and validation data since we are using only 100 tfrecord samples. This ensures that we have sufficient data for training as well as validation.We are using 10% (0.1) of the sample as the test set to check the error rate and if the model is overfitting.Ideally,overfitting should not be an issue since 75% is under training and rest 10% is for testing.
 
 ### Training
 #### Reference experiment
 This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
 
+<img src=/images/SSD_dataAug.png alt="drawing" width="600"/>
+
+
 #### Improve on the reference
-This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
+To improve the performance, data augmentation techniques are used:
+- GrayScale
+
+<img src=/images/SSD_dataAug.png alt="drawing" width="600"/>
+
