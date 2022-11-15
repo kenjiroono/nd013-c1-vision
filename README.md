@@ -214,12 +214,21 @@ In this case, we are using 0.75 : 0.15 as the proportion of training and validat
 #### Reference experiment
 This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
 
-<img src=/images/SSD_dataAug.png alt="drawing" width="600"/>
-
+The reference experiment was carried out with the default pipeline configuration except the batch size was adjusted down to 16. The batch size was adjusted as the default batch size of 64 had thrown memory capacity error in the workspace environment.  
+The evaluation loss was considerably higher than the train loss which is the sign of overfitting in the training process:
+<img src=/images/trained_ref.png alt="drawing" width="600"/>
 
 #### Improve on the reference
-To improve the performance, data augmentation techniques are used:
+To improve the performance, the following data augmentation techniques are used:
+- Random horizontal flip 
+- Random crop image 
 - GrayScale
+- Random adjust contrast
+- Random adjust brightness
 
-<img src=/images/SSD_dataAug.png alt="drawing" width="600"/>
+The experiment with the above data augmentation could not improve the model performance. This might be caused by to the memory capacity error in which only the batch size of 8 was able to be used in the workspace environment:
+
+<img src=/images/data_augment.png alt="drawing" width="600"/>
+
+In summary, using the higher batch size on both the reference and data augmented experiments may yeild distinguishable results.
 
