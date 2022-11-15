@@ -229,7 +229,7 @@ To improve the performance, the data augmentation techniques below are used. Dis
 <img src=/images/contrast.png alt="drawing" width="600"/>
 
 - Random adjust brightness
-<img src=/images/brightness.png.png alt="drawing" width="600"/>
+<img src=/images/brightness.png alt="drawing" width="600"/>
 
 
 The experiment with the above data augmentation could not improve the model performance. This might be caused by to the memory capacity error in which only the batch size of 8 was able to be used in the workspace environment:
